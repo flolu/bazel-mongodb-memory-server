@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "test": "bazelisk test //...",
+    "test:jasmine": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.2"
+  },
+  "devDependencies": {
+    "@bazel/bazelisk": "^1.6.1",
+    "@bazel/jasmine": "^2.2.0",
+    "@bazel/typescript": "^2.2.0",
+    "@types/jasmine": "^3.5.14",
+    "@types/mongodb": "^3.5.27",
+    "jasmine": "^3.6.1",
+    "mongodb-memory-server": "^6.7.5",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}

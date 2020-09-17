@@ -1,0 +1,31 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+load("@npm//@bazel/jasmine:index.bzl", "jasmine_node_test")
+
+exports_files(["tsconfig.json"])
+
+ts_library(
+    name = "lib",
+    srcs = ["index.ts"],
+    deps = [
+        "@npm//@types/mongodb",
+        "@npm//mongodb",
+    ],
+)
+
+ts_library(
+    name = "test_lib",
+    srcs = ["index.test.ts"],
+    deps = [
+        ":lib",
+        "@npm//@types/jasmine",
+        "@npm//@types/mongodb",
+        "@npm//jasmine",
+        "@npm//mongodb",
+        "@npm//mongodb-memory-server",
+    ],
+)
+
+jasmine_node_test(
+    name = "test",
+    deps = [":test_lib"],
+)
